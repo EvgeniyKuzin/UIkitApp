@@ -21,11 +21,11 @@ class ViewController: UIViewController {
     
     @IBAction func greetingButtonTapped() {
         greetingLabel.isHidden.toggle()
-        if !greetingLabel.isHidden {
-            showGreeteingButton.setTitle("спрятать", for: .normal)
-        } else {
-            showGreeteingButton.setTitle("показать еще раз", for: .normal)
-        }
+        
+        showGreeteingButton.setTitle (
+            greetingLabel.isHidden ? "спрятать" : "показать снова",
+            for: .normal
+        )
     }
 }
 
