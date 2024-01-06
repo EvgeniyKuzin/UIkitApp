@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func topButtonPressed() {
+        view.endEditing(true)
             greetingLabel.text = textField.text
     }
         
