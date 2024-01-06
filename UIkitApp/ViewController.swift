@@ -8,24 +8,39 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
+    @IBOutlet var topButton: UIButton!
     @IBOutlet var greetingLabel: UILabel!
     @IBOutlet var showGreeteingButton: UIButton!
+    @IBOutlet var switcher: UISwitch!
+    @IBOutlet var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         greetingLabel.isHidden = true
     }
 
-    
-    @IBAction func greetingButtonTapped() {
-        greetingLabel.isHidden.toggle()
+    @IBAction func topButtonPressed() {
+            greetingLabel.text = textField.text
+    }
         
-        showGreeteingButton.setTitle (
-            greetingLabel.isHidden ? "спрятать" : "показать снова",
-            for: .normal
-        )
+    @IBAction func switcherChange() {
+        if switcher.isOn {
+            showGreeteingButton.setTitle("другое дело", for: .normal)
+        }
+    }
+
+    @IBAction func greetingButtonTapped() {
+        if switcher.isOn {
+            greetingLabel.isHidden.toggle()
+            
+            showGreeteingButton.setTitle (
+                !greetingLabel.isHidden ? "спрятать" : "показать снова",
+                for: .normal
+            )
+        } else {
+            showGreeteingButton.setTitle ("включите тумблер", for: .normal)
+        }
     }
 }
 
