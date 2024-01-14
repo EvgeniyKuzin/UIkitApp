@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet var topButton: UIButton!
     @IBOutlet var greetingLabel: UILabel!
@@ -19,7 +19,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         greetingLabel.isHidden = true
     }
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let aboutVC = segue.destination as? AboutVC else { return }
+        aboutVC.label = textField.text
+    }
+   
+    
     @IBAction func topButtonPressed() {
         view.endEditing(true)
             greetingLabel.text = textField.text

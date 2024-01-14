@@ -11,8 +11,12 @@ class AboutVC: UIViewController {
     
     @IBOutlet var aboutLabel: UILabel!
     
+    var label: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        aboutLabel.text = "GGG"
+        if !label.isEmpty {
+            aboutLabel.text = label
+        }
     }
 }
