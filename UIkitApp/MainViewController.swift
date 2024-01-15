@@ -20,13 +20,16 @@ final class MainViewController: UIViewController {
         greetingLabel.isHidden = true
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let aboutVC = segue.destination as? AboutVC else { return }
         aboutVC.label = textField.text
     }
-   
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+   
     @IBAction func topButtonPressed() {
         view.endEditing(true)
             greetingLabel.text = textField.text
